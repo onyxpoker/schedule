@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Расписание клуба: октябрь – ноябрь 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;700&display=swap">
+<style>
+:root{
+  --bg:#f1efe6; --card:#fbfaf5; --ink:#17302a; --muted:#5f6f68; --line:#d9d6c8;
+  --accent:#b9822a; --accent-ink:#ffffff; --ok:#2f7a55; --chip:#e8e5d6;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e241d; --card:#153229; --ink:#f1ecdd; --muted:#a3b5ab; --line:#27493d;
+    --accent:#e3b04b; --accent-ink:#1b1608; --ok:#7fc8a0; --chip:#1d3f34; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e241d; --card:#153229; --ink:#f1ecdd; --muted:#a3b5ab; --line:#27493d;
+  --accent:#e3b04b; --accent-ink:#1b1608; --ok:#7fc8a0; --chip:#1d3f34; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Onest,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+main{max-width:760px;margin:0 auto;padding:32px 18px 64px}
+header{margin-bottom:28px}
+h1{font-family:Unbounded,"Arial Black",system-ui,sans-serif;font-weight:700;font-size:clamp(26px,6vw,40px);line-height:1.1;margin:0 0 10px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 18px;max-width:52ch}
+.bar{height:8px;border-radius:99px;background:var(--chip);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+.barlabel{font-size:14px;color:var(--muted);margin-top:8px}
+h2{font-family:Unbounded,system-ui,sans-serif;font-weight:500;font-size:18px;margin:34px 0 12px}
+details.ev{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+details.ev[open]{border-color:var(--accent)}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:14px 16px}
+summary::-webkit-details-marker{display:none}
+summary:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.date{font-family:Unbounded,system-ui,sans-serif;text-align:center;line-height:1}
+.date b{display:block;font-size:30px;font-weight:700}
+.date span{font-size:12px;color:var(--muted);font-family:Onest,system-ui,sans-serif}
+.name{font-weight:600;font-size:17px}
+.meta{font-size:14px;color:var(--muted)}
+.note{display:inline-block;margin-top:4px;font-size:12.5px;background:var(--chip);border-radius:99px;padding:1px 10px;color:var(--ink)}
+.count{font-size:13px;background:var(--chip);border-radius:99px;padding:3px 11px;white-space:nowrap}
+.count.done{background:var(--ok);color:var(--accent-ink)}
+.body{padding:2px 16px 16px;border-top:1px dashed var(--line)}
+ul{list-style:none;margin:12px 0;padding:0}
+li{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
+li:last-child{border-bottom:0}
+li input[type=checkbox]{width:20px;height:20px;accent-color:var(--ok);flex:none}
+li label{flex:1;cursor:pointer;overflow-wrap:anywhere}
+li.done label{text-decoration:line-through;color:var(--muted)}
+.del{background:none;border:0;color:var(--muted);font-size:20px;line-height:1;cursor:pointer;padding:4px 8px;border-radius:8px}
+.del:hover{color:var(--ink);background:var(--chip)}
+.empty{color:var(--muted);font-size:14px;margin:12px 0}
+li label{min-width:0}
+.amt{width:96px;flex:none;font:inherit;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);text-align:right}
+.cur{color:var(--muted)}
+form input.sum{flex:none;width:112px}
+#money{font-weight:600;color:var(--ink)}
+.newev{background:var(--card);border:1px dashed var(--accent);border-radius:14px;margin-bottom:6px}
+.newev>summary,.editbox>summary{display:block;cursor:pointer;padding:12px 16px;font-weight:600}
+.newev .evform{padding:0 16px 16px}
+.editbox{margin-top:16px;border-top:1px dashed var(--line)}
+.editbox>summary{padding:12px 0;color:var(--muted);font-weight:500}
+.editbox .evform{padding-bottom:4px}
+.evform{flex-direction:column}
+.evform label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.evform input{flex:none;width:100%}
+.evform .row{display:flex;gap:8px;flex-wrap:wrap}
+.evform button.danger{background:none;border:1px solid var(--line);color:var(--ink)}
+.evform button.danger.armed{background:#b3402e;border-color:#b3402e;color:#fff}
+form{display:flex;gap:8px}
+form input{flex:1;min-width:0;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+form button{font:inherit;font-weight:600;padding:10px 16px;border-radius:10px;border:0;background:var(--accent);color:var(--accent-ink);cursor:pointer}
+@media (max-width:480px){summary{grid-template-columns:52px 1fr;}.count{grid-column:2;justify-self:start}}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Расписание клуба</h1>
+    <p class="sub">Октябрь – ноябрь 2026. Откройте мероприятие и добавьте всё, что нужно подготовить: отмечайте готовое галочкой.</p>
+    <div class="bar" aria-hidden="true"><i id="fill"></i></div>
+    <div class="barlabel" id="total"></div>
+    <div class="barlabel" id="money"></div>
+  </header>
+  <details class="newev"><summary>+ Добавить мероприятие</summary>
+    <form id="newev" class="evform">
+      <label>Название<input name="title" type="text" required maxlength="80" placeholder="Например, Квиз"></label>
+      <label>Дата<input name="date" type="date" required></label>
+      <label>Заметка (необязательно)<input name="note" type="text" maxlength="80"></label>
+      <div class="row"><button type="submit">Добавить в расписание</button></div>
+    </form></details>
+  <div id="list"></div>
+</main>
+<script>
+var EVENTS=[
+  {id:"e1",date:"2026-10-24",title:"Мафия"},
+  {id:"e2",date:"2026-10-31",title:"Хеллоуин вечеринка"},
+  {id:"e3",date:"2026-11-04",title:"Квиз",note:"День народного единства"},
+  {id:"e4",date:"2026-11-07",title:"Финал сезона"},
+  {id:"e5",date:"2026-11-14",title:"Мафия"},
+  {id:"e6",date:"2026-11-19",title:"Шахматный турнир"},
+  {id:"e7",date:"2026-11-21",title:"Турнир по фифе"},
+  {id:"e8",date:"2026-11-28",title:"Мафия"}
+];
+var KEY="club-schedule-checklists-v1";
+var state={}, openSet={};
+try{var raw=localStorage.getItem(KEY); if(raw) state=JSON.parse(raw)||{};}catch(e){state={};}
+var EKEY="club-schedule-events-v1";
+try{var re=localStorage.getItem(EKEY);if(re){var pe=JSON.parse(re);if(Array.isArray(pe))EVENTS=pe;}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));localStorage.setItem(EKEY,JSON.stringify(EVENTS));}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+var fmtDay=new Intl.DateTimeFormat("ru",{weekday:"long"});
+var fmtMonth=new Intl.DateTimeFormat("ru",{month:"long",year:"numeric"});
+function parse(d){var p=d.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
+function render(){
+  EVENTS.sort(function(a,b){return a.date<b.date?-1:a.date>b.date?1:0;});
+  var html="",cur="",all=0,done=0;
+  EVENTS.forEach(function(ev){
+    var d=parse(ev.date), month=fmtMonth.format(d);
+    if(month!==cur){cur=month;html+="<h2>"+esc(month.charAt(0).toUpperCase()+month.slice(1))+"</h2>";}
+    var items=state[ev.id]||[], n=items.length, k=items.filter(function(i){return i.done;}).length;
+    all+=n; done+=k;
+    var cls="count"+(n&&k===n?" done":"");
+    var label=countLabel(items);
+    html+='<details class="ev" data-id="'+ev.id+'"'+(openSet[ev.id]?" open":"")+'><summary>'
+      +'<div class="date"><b>'+d.getDate()+'</b><span>'+d.toLocaleDateString("ru",{month:"short"}).replace(".","")+'</span></div>'
+      +'<div><div class="name">'+esc(ev.title)+'</div><div class="meta">'+esc(fmtDay.format(d))+'</div>'
+      +(ev.note?'<span class="note">'+esc(ev.note)+'</span>':"")+'</div>'
+      +'<span class="'+cls+'">'+label+'</span></summary><div class="body">';
+    if(n){
+      html+="<ul>"+items.map(function(it,i){
+        var cid=ev.id+"-"+i;
+        return '<li class="'+(it.done?"done":"")+'"><input type="checkbox" id="'+cid+'" data-ev="'+ev.id+'" data-i="'+i+'"'+(it.done?" checked":"")+'>'
+          +'<label for="'+cid+'">'+esc(it.t)+'</label>'
+          +'<input class="amt" type="number" min="0" step="any" inputmode="decimal" placeholder="0" value="'+(it.a||"")+'" aria-label="Сумма в рублях" data-ev="'+ev.id+'" data-i="'+i+'"><span class="cur">₽</span>'
+          +'<button class="del" type="button" aria-label="Удалить пункт" data-ev="'+ev.id+'" data-i="'+i+'">×</button></li>';
+      }).join("")+"</ul>";
+    } else html+='<p class="empty">Пока ничего нет. Добавьте первый пункт: например, колонки, призы или реквизит.</p>';
+    html+='<form data-ev="'+ev.id+'"><input type="text" placeholder="Что нужно подготовить" aria-label="Новый пункт для мероприятия «'+esc(ev.title)+'»" maxlength="120"><input class="sum" type="number" min="0" step="any" inputmode="decimal" placeholder="Сумма, ₽" aria-label="Сумма в рублях"><button type="submit">Добавить</button></form>'+editBox(ev)+'</div></details>';
+  });
+  document.getElementById("list").innerHTML=html||'<p class="empty">Мероприятий пока нет. Добавьте первое выше.</p>';
+  document.getElementById("fill").style.width=(all?Math.round(done/all*100):0)+"%";
+  refreshSums();
+  document.getElementById("total").textContent=all?("Подготовлено "+done+" из "+all+" пунктов"):"Пунктов пока нет";
+}
+function money(v){return new Intl.NumberFormat("ru",{maximumFractionDigits:2}).format(v)+" ₽";}
+function sumOf(items){return items.reduce(function(a,it){return a+(+it.a||0);},0);}
+function countLabel(items){
+  var n=items.length,k=items.filter(function(i){return i.done;}).length,s=sumOf(items);
+  if(!n)return "список пуст";
+  return k+" из "+n+" готово"+(s?", "+money(s):"");
+}
+function refreshSums(){
+  var total=0;
+  EVENTS.forEach(function(ev){
+    var items=state[ev.id]||[];total+=sumOf(items);
+    var c=document.querySelector('details[data-id="'+ev.id+'"] .count');
+    if(c)c.textContent=countLabel(items);
+  });
+  document.getElementById("money").textContent=total?("Общий бюджет: "+money(total)):"Бюджет пока не указан";
+}
+function editBox(ev){
+  return '<details class="editbox"><summary>Изменить мероприятие</summary><form class="evform" data-ev="'+ev.id+'">'
+    +'<label>Название<input name="title" type="text" required maxlength="80" value="'+esc(ev.title)+'"></label>'
+    +'<label>Дата<input name="date" type="date" required value="'+esc(ev.date)+'"></label>'
+    +'<label>Заметка<input name="note" type="text" maxlength="80" value="'+esc(ev.note||"")+'"></label>'
+    +'<div class="row"><button type="submit">Сохранить</button><button type="button" class="danger" data-delev="'+ev.id+'">Удалить мероприятие</button></div></form></details>';
+}
+function saveEvent(f){
+  var ev=EVENTS.filter(function(x){return x.id===f.dataset.ev;})[0];if(!ev)return;
+  var t=f.elements.title.value.trim(),d=f.elements.date.value;if(!t||!d)return;
+  ev.title=t;ev.date=d;ev.note=f.elements.note.value.trim()||undefined;
+  openSet[ev.id]=true;save();render();
+}
+function delEvent(id){
+  EVENTS=EVENTS.filter(function(x){return x.id!==id;});
+  delete state[id];delete openSet[id];save();render();
+}
+document.getElementById("newev").addEventListener("submit",function(e){
+  e.preventDefault();var f=e.target,t=f.elements.title.value.trim(),d=f.elements.date.value;if(!t||!d)return;
+  var id="e"+Date.now().toString(36);
+  EVENTS.push({id:id,date:d,title:t,note:f.elements.note.value.trim()||undefined});
+  openSet[id]=true;save();f.reset();render();
+});
+var list=document.getElementById("list");
+list.addEventListener("toggle",function(e){var d=e.target;if(d.dataset&&d.dataset.id)openSet[d.dataset.id]=d.open;},true);
+list.addEventListener("change",function(e){
+  var t=e.target;if(t.type!=="checkbox")return;
+  state[t.dataset.ev][+t.dataset.i].done=t.checked;save();render();
+});
+list.addEventListener("input",function(e){
+  var t=e.target;if(!t.classList.contains("amt"))return;
+  state[t.dataset.ev][+t.dataset.i].a=parseFloat(t.value)||0;save();refreshSums();
+});
+list.addEventListener("click",function(e){
+  var dv=e.target.closest("[data-delev]");
+  if(dv){if(dv.classList.contains("armed")){delEvent(dv.dataset.delev);}else{dv.classList.add("armed");dv.textContent="Точно удалить? Нажмите ещё раз";}return;}
+  var b=e.target.closest(".del");if(!b)return;
+  state[b.dataset.ev].splice(+b.dataset.i,1);save();render();
+});
+list.addEventListener("submit",function(e){
+  e.preventDefault();
+  var f=e.target;if(f.classList.contains("evform")){saveEvent(f);return;}
+  var inp=f.querySelector("input"),v=inp.value.trim(),amt=parseFloat(f.querySelector(".sum").value)||0;if(!v)return;
+  var id=f.dataset.ev;(state[id]=state[id]||[]).push({t:v,a:amt,done:false});
+  openSet[id]=true;save();render();
+  var nf=list.querySelector('form[data-ev="'+id+'"] input');if(nf)nf.focus();
+});
+render();
+</script>
+</body>
+</html>
